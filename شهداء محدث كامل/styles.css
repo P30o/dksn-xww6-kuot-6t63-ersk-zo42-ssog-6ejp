@@ -1,0 +1,417 @@
+/* إعدادات الصفحة العامة */
+html, body {
+    overflow-x: hidden; /* يمنع التمرير الأفقي */
+    overflow-y: auto; /* يتيح التمرير العمودي */
+    width: 100%; /* عرض الصفحة بالكامل */
+    height: 100%; /* ارتفاع الصفحة بالكامل */
+    margin: 0; /* إزالة الهوامش الافتراضية */
+    padding: 0; /* إزالة الحشوة الافتراضية */
+    font-family: 'Tajawal', sans-serif; /* تعيين الخط الأساسي */
+    background-color: #121212; /* لون الخلفية الداكن */
+    color: #e0e0e0; /* لون النص */
+    display: flex; /* استخدام flexbox لتنسيق العناصر */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+}
+
+/* تصميم شريط التنقل الثابت */
+.nav-container {
+    position: fixed; /* تثبيت الشريط العلوي */
+    top: 0; /* تحديد الموقع من الأعلى */
+    left: 0; /* تحديد الموقع من اليسار */
+    right: 0; /* تحديد الموقع من اليمين */
+    background-color: #1b1b1b; /* لون خلفية الشريط العلوي */
+    padding: 10px 20px; /* حشوة داخلية */
+    display: flex; /* استخدام flexbox لتنسيق العناصر داخل الشريط */
+    justify-content: space-between; /* توزيع العناصر بشكل متساوي */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    z-index: 1000; /* ترتيب العناصر فوق باقي العناصر */
+    border-bottom: 2px solid #333; /* حدود أسفل الشريط */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ظل الشريط */
+}
+
+/* عنوان الشريط العلوي */
+.nav-title {
+    color: #e0e0e0; /* لون النص */
+    font-size: 20px; /* حجم الخط */
+    font-weight: bold; /* جعل النص غامقًا */
+}
+
+/* أيقونة التبديل لعرض الروابط */
+.nav-toggle {
+    font-size: 24px; /* حجم أيقونة التبديل */
+    color: #e0e0e0; /* لون الأيقونة */
+    cursor: pointer; /* تغيير المؤشر عند المرور فوقه */
+    transition: transform 0.3s ease; /* إضافة تأثير التحول */
+}
+
+/* تأثير التدوير عند مرور المؤشر فوق أيقونة التبديل */
+.nav-toggle:hover {
+    transform: rotate(90deg); /* تدوير الأيقونة عند المرور فوقها */
+}
+
+/* إضافة التأثير السلس في الانتقال بين الأيقونات */
+.nav-toggle i {
+    transition: transform 0.3s ease;
+}
+
+
+/* روابط التنقل عند ظهورها */
+.nav-links {
+    display: none; /* إخفاء روابط التنقل افتراضيًا */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    justify-content: center; /* محاذاة العناصر بشكل مركزي */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    background-color: rgba(0, 0, 0, 0.9); /* لون خلفية الروابط */
+    position: fixed; /* تثبيت الروابط في المكان */
+    top: 0; /* تحديد الموقع من الأعلى */
+    left: 0; /* تحديد الموقع من اليسار */
+    right: 0; /* تحديد الموقع من اليمين */
+    bottom: 0; /* تحديد الموقع من الأسفل */
+    z-index: 999; /* ترتيب العناصر فوق بعضها */
+    text-align: center; /* محاذاة النص في الوسط */
+    transition: opacity 0.3s ease; /* إضافة تأثير الشفافية */
+}
+
+/* تصميم روابط التنقل */
+.nav-links a {
+    color: #e0e0e0; /* لون الروابط */
+    font-size: 24px; /* حجم الخط */
+    margin: 10px 0; /* إضافة هوامش بين الروابط */
+    text-decoration: none; /* إزالة الخط السفلي من الروابط */
+    transition: color 0.3s ease; /* إضافة تأثير تغيير اللون */
+}
+
+/* تأثير تغيير اللون عند مرور المؤشر فوق الروابط */
+.nav-links a:hover {
+    color: #d9534f; /* تغيير لون الرابط عند المرور فوقه */
+}
+
+/* محتوى الصفحة الرئيسي */
+.content {
+    margin-top: 70px; /* إزاحة المحتوى لأسفل لتفادي التداخل مع الشريط العلوي */
+    padding: 20px; /* حشوة داخلية للمحتوى */
+    flex-grow: 1; /* السماح بتوسيع المحتوى ليملأ المساحة المتبقية */
+}
+
+/* تصميم البطاقة التذكارية */
+.memorial-card {
+    max-width: 400px; /* تحديد العرض الأقصى للبطاقة */
+    margin: 20px auto; /* إضافة هوامش فوق وتحت وتوسيط البطاقة */
+    background-color: #1c1c1c; /* لون خلفية البطاقة */
+    border-radius: 15px; /* تدوير زوايا البطاقة */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* ظل البطاقة */
+    overflow: hidden; /* إخفاء المحتوى الزائد */
+    text-align: center; /* محاذاة النص في الوسط */
+    position: relative; /* تحديد الموضع */
+    border: 1px solid #333; /* حد البطاقة */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات التحويل والظل */
+}
+
+/* تأثير رفع البطاقة عند مرور المؤشر فوقها */
+.memorial-card:hover {
+    transform: translateY(-5px); /* رفع البطاقة عند المرور فوقها */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6); /* تغيير الظل عند المرور فوق البطاقة */
+}
+
+/* تصميم رأس البطاقة */
+.memorial-header {
+    position: relative; /* تحديد الموضع */
+    width: 100%; /* عرض الرأس */
+    height: 480px; /* ارتفاع الرأس */
+    overflow: hidden; /* إخفاء المحتوى الزائد */
+}
+
+/* تصميم صورة الرأس */
+.memorial-header img {
+    width: 100%; /* عرض الصورة ليملأ الرأس */
+    height: 100%; /* ارتفاع الصورة ليملأ الرأس */
+    object-fit: cover; /* ملاءمة الصورة داخل الرأس */
+}
+
+/* تصميم محتوى البطاقة */
+.memorial-content {
+    padding: 25px; /* حشوة داخلية */
+    background: linear-gradient(145deg, #1c1c1c, #252525); /* تدرج لوني لخلفية المحتوى */
+    border-radius: 12px; /* تدوير الزوايا */
+    text-align: center; /* محاذاة النص في الوسط */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* ظل المحتوى */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* إضافة تأثيرات */
+}
+
+/* تصميم عنوان المحتوى */
+.memorial-content h3 {
+    font-size: 26px; /* حجم الخط */
+    color: #ffffff; /* لون النص */
+    margin: 0; /* إزالة الهوامش */
+    font-weight: 600; /* جعل النص غامقًا */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
+    letter-spacing: 0.5px; /* إضافة مسافة بين الحروف */
+}
+
+/* تصميم نص المحتوى */
+.memorial-content p {
+    font-size: 16px; /* حجم الخط */
+    color: #e0e0e0; /* لون النص */
+    margin: 12px 0; /* إضافة هوامش فوق وتحت */
+    line-height: 1.7; /* ارتفاع السطر */
+    text-align: center; /* محاذاة النص في الوسط */
+    text-shadow: none; /* إزالة ظل النص */
+}
+
+/* تصميم تذييل البطاقة التذكارية */
+.memorial-footer {
+    display: flex; /* استخدام flexbox لتنسيق العناصر داخل التذييل */
+    justify-content: space-between; /* توزيع العناصر بشكل متساوي */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    margin-top: 20px; /* إضافة هامش أعلى */
+    border-top: 1px solid #333; /* حد علوي للتذييل */
+    padding-top: 10px; /* حشوة داخلية من الأعلى */
+}
+
+/* تصميم النص داخل تذييل البطاقة */
+.memorial-footer span {
+    font-size: 14px; /* حجم الخط */
+    color: #d0d0d0; /* لون النص */
+    font-weight: 500; /* جعل النص شبه غامق */
+    text-align: center; /* توسيط النص داخل التذييل */
+}
+
+/* تصميم التذييل */
+.memorial-footer {
+    display: flex;
+    flex-direction: column; /* تنظيم العناصر عموديًا */
+    align-items: center; /* توسيط العناصر أفقيًا */
+    gap: 15px; /* المسافة بين العناصر */
+    border-top: 1px solid #333; /* خط التحديد العلوي للتذييل */
+    padding: 20px; /* حشوة داخلية للتذييل */
+    background-color: #1c1c1c; /* خلفية التذييل */
+    border-radius: 10px; /* تدوير الزوايا */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* إضافة ظل للتأكيد */
+}
+
+/* تصميم تاريخ البطاقة وحالة البطاقة في التذييل */
+.memorial-footer .date, 
+.memorial-footer .status {
+    font-size: 14px; /* حجم الخط */
+    font-weight: bold; /* جعل النص غامقًا */
+    text-align: center; /* توسيط النص */
+    white-space: normal; /* السماح بتلخيص النص */
+    overflow-wrap: break-word; /* كسر النص الطويل */
+    padding: 5px 10px; /* إضافة حشوة حول النص */
+    background-color: rgba(50, 50, 50, 0.7); /* خلفية شبه شفافة */
+    border-radius: 8px; /* تدوير الزوايا */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); /* إضافة ظل خفيف */
+}
+
+/* تغيير ألوان النص */
+.memorial-footer .date {
+    color: #f5f5f5; /* لون نص تاريخ الاستشهاد */
+}
+
+.memorial-footer .status {
+    color: #f5f5f5; /* لون نص حالة البطاقة */
+}
+
+/* تأثيرات التمرير */
+.memorial-footer:hover {
+    background-color: #252525; /* تغيير لون الخلفية عند التمرير */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* إضافة ظل أقوى للتأكيد */
+    transform: translateY(-2px); /* رفع التذييل قليلاً */
+    transition: all 0.3s ease; /* تأثير الانتقال */
+}
+
+/* تأثيرات النص عند التمرير */
+.memorial-footer .date:hover, 
+.memorial-footer .status:hover {
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); /* إضافة ظل للنص */
+}
+
+
+/* تصميم تذييل الصفحة */
+footer {
+    background-color: #1b1b1b; /* لون الخلفية */
+    color: #e0e0e0; /* لون النص */
+    padding: 30px 20px; /* حشوة داخلية */
+    text-align: center; /* توسيط النص */
+    border-top: 3px solid #333; /* حد علوي */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3); /* ظل */
+    position: relative; /* تحديد الموضع */
+    margin-top: auto; /* هامش علوي تلقائي */
+    border-radius: 5px; /* تدوير الزوايا */
+}
+
+/* تصميم محتوى التذييل */
+.footer-content {
+    max-width: 1200px; /* عرض أقصى */
+    margin: 0 auto; /* توسيط المحتوى */
+    padding: 20px; /* حشوة داخلية */
+    background: linear-gradient(to right, #252525, #1b1b1b); /* تدرج لوني للخلفية */
+    border-radius: 10px; /* تدوير الزوايا */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* ظل */
+}
+
+/* تصميم نص تذييل الصفحة */
+.footer-text {
+    font-size: 16px; /* حجم الخط */
+    margin: 10px 0; /* هوامش فوق وتحت */
+}
+
+/* تصميم حقوق الملكية والمعلومات */
+.footer-credit, .footer-rights {
+    font-size: 14px; /* حجم الخط */
+    margin: 5px 0; /* هوامش فوق وتحت */
+}
+
+/* تصميم روابط حقوق الملكية */
+.footer-credit a {
+    color: #A22C2C; /* لون الرابط */
+    text-decoration: none; /* إزالة الخط السفلي */
+    font-weight: bold; /* جعل الرابط غامقًا */
+    transition: color 0.3s ease; /* إضافة تأثير تغيير اللون */
+}
+
+/* تأثير تمرير المؤشر على رابط حقوق الملكية */
+.footer-credit a:hover {
+    text-decoration: underline; /* إضافة خط سفلي عند المرور */
+    color: #fff; /* تغيير لون الرابط */
+}
+
+/* تصميم فاصل في التذييل */
+footer .divider {
+    height: 2px; /* ارتفاع الفاصل */
+    background: #A22C2C; /* لون الفاصل */
+    margin: 10px 0; /* هوامش فوق وتحت */
+}
+
+/* تصميم الفاصل العام */
+.divider {
+    height: 2px; /* ارتفاع الفاصل */
+    background: linear-gradient(to right, #4a4a4a, #2c2c2c); /* تدرج لوني */
+    margin: 20px auto; /* هوامش فوق وتحت وتوسيط */
+    width: 60%; /* عرض الفاصل */
+    border-radius: 3px; /* تدوير الزوايا */
+}
+
+/* تصميم الاستجابة (Responsive Design) */
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 15px; /* تقليل الحشوة */
+    }
+    .memorial-card {
+        width: 100%; /* عرض البطاقة بنسبة 100% */
+        margin: 10px 0; /* هوامش فوق وتحت */
+    }
+    .memorial-content h3 {
+        font-size: 20px; /* تقليل حجم الخط */
+    }
+    .memorial-content p {
+        font-size: 14px; /* تقليل حجم الخط */
+    }
+}
+
+/* تصميم شاشة التحميل */
+#loading-screen {
+    position: fixed; /* تثبيت الشاشة */
+    top: 0; /* تحديد الموقع من الأعلى */
+    left: 0; /* تحديد الموقع من اليسار */
+    width: 100%; /* عرض الشاشة بالكامل */
+    height: 100%; /* ارتفاع الشاشة بالكامل */
+    background: #121212; /* لون الخلفية */
+    display: flex; /* استخدام flexbox لتنسيق العناصر */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    justify-content: center; /* محاذاة العناصر في الوسط */
+    align-items: center; /* محاذاة العناصر أفقيًا */
+    z-index: 9999; /* ترتيب العناصر فوق باقي العناصر */
+}
+
+/* تصميم شريط التحميل العلوي */
+#top-loading-bar {
+    position: absolute; /* تحديد الموضع */
+    top: 0; /* تحديد الموقع من الأعلى */
+    left: 0; /* تحديد الموقع من اليسار */
+    height: 5px; /* ارتفاع الشريط */
+    background: linear-gradient(to right, #A22C2C, #A22C2C); /* تدرج لوني */
+    width: 0; /* عرض الشريط مبدئيًا */
+    transition: width 0.4s ease; /* إضافة تأثير تغيير العرض */
+}
+
+/* تصميم شريط التحميل السفلي */
+#bottom-loading-bar {
+    width: 80%; /* عرض الشريط */
+    height: 10px; /* ارتفاع الشريط */
+    background: #333; /* لون الخلفية */
+    border-radius: 5px; /* تدوير الزوايا */
+    overflow: hidden; /* إخفاء المحتوى الزائد */
+    margin-top: 20px; /* هامش علوي */
+}
+
+/* تصميم شريط النسبة المئوية */
+#progress-bar {
+    height: 100%; /* ارتفاع الشريط */
+    background: linear-gradient(to right, #A22C2C, #A22C2C); /* تدرج لوني */
+    width: 0; /* عرض الشريط مبدئيًا */
+    transition: width 0.4s ease; /* إضافة تأثير تغيير العرض */
+}
+
+/* تصميم عداد النسبة المئوية */
+#loading-percentage {
+    color: #ffffff; /* لون النص */
+    font-family: 'Tajawal', sans-serif; /* تعيين الخط */
+    font-size: 24px; /* حجم الخط */
+    margin-top: 20px; /* هامش علوي */
+}
+
+/* إخفاء المحتوى أثناء التحميل */
+#content-container {
+    display: none; /* إخفاء المحتوى */
+}
+
+/* إظهار المحتوى بعد التحميل */
+#content-container.active {
+    display: block; /* عرض المحتوى */
+}
+
+/* تصميم الشاشة الرئيسية لواجهة التحميل */
+#loading-screen {
+    display: flex; /* استخدام flexbox لتنسيق العناصر */
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    align-items: center; /* محاذاة العناصر في الوسط */
+    justify-content: center; /* محاذاة العناصر أفقيًا */
+    height: 100vh; /* ارتفاع الشاشة بالكامل */
+    background-color: #121212; /* لون الخلفية */
+    color: #ffffff; /* لون النص */
+    font-family: 'Tajawal', sans-serif; /* تعيين الخط */
+}
+
+/* تصميم عنوان الشاشة */
+.loading-title {
+    font-size: 2rem; /* حجم الخط */
+    font-weight: bold; /* جعل النص غامقًا */
+    margin-bottom: 20px; /* هامش سفلي */
+    text-align: center; /* توسيط النص */
+}
+
+/* تصميم شريط التحميل */
+#top-loading-bar, #bottom-loading-bar {
+    width: 80%; /* عرض الشريط */
+    height: 5px; /* ارتفاع الشريط */
+    background-color: #555; /* لون الخلفية */
+    margin: 10px 0; /* هوامش فوق وتحت */
+}
+
+/* تصميم شريط النسبة المئوية */
+#progress-bar {
+    height: 100%; /* ارتفاع الشريط */
+    background-color: #0e76a8; /* لون الخلفية */
+    width: 0%; /* عرض الشريط مبدئيًا */
+}
+
+/* تصميم عداد النسبة المئوية */
+#loading-percentage {
+    font-size: 1.2rem; /* حجم الخط */
+    margin-top: 10px; /* هامش علوي */
+}
+
+
+
+
