@@ -1,0 +1,25 @@
+RewriteEngine On
+
+# تحويل HTTP إلى HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# إخفاء الامتداد .html
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
+
+# إعادة كتابة الروابط لعرضها بشكل نظيف (بدون .html)
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^([^/]+)$ $1/ [L]
+
+# حظر الوصول إلى ملفات .htaccess
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# تفعيل الكاش للملفات الثابتة (CSS، JS، الصور)
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|woff|woff2|ttf|eot|svg)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
