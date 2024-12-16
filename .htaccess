@@ -23,3 +23,12 @@ RewriteRule ^([^/]+)$ $1/ [L]
 <FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|woff|woff2|ttf|eot|svg)$">
     Header set Cache-Control "max-age=31536000, public"
 </FilesMatch>
+
+# منع الوصول إلى ملفات HTML، CSS، و JavaScript
+<FilesMatch "\.(html|css|js)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# إعادة توجيه المستخدم إلى صفحة 404 عند الوصول إلى ملفات معينة
+ErrorDocument 404 /404.html
