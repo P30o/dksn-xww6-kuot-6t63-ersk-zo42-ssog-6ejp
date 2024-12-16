@@ -1,9 +1,4 @@
-<FilesMatch "\.(js)$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
-
-
+# تفعيل إعادة الكتابة
 RewriteEngine On
 
 # تحويل HTTP إلى HTTPS
@@ -19,7 +14,7 @@ RewriteRule ^([^/]+)$ $1.html [L]
 RewriteCond %{REQUEST_URI} !/$
 RewriteRule ^([^/]+)$ $1/ [L]
 
-# حظر الوصول إلى ملفات .htaccess
+# حظر الوصول إلى ملف .htaccess
 <Files ".htaccess">
     Order allow,deny
     Deny from all
@@ -30,11 +25,12 @@ RewriteRule ^([^/]+)$ $1/ [L]
     Header set Cache-Control "max-age=31536000, public"
 </FilesMatch>
 
-# منع الوصول إلى ملفات HTML، CSS، و JavaScript
-<FilesMatch "\.(html|css|js)$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
+# منع الوصول المباشر إلى ملفات JavaScript أو CSS (إذا كنت لا تريد أن يراها المستخدمون)
+# لا يتم حظر ملفات JavaScript و CSS بشكل عام إذا كانت لازمة لتشغيل الموقع
+# إذا كنت تريد منع الوصول إليها، يمكن تعديل الكود بحسب الحاجة
 
-# إعادة توجيه المستخدم إلى صفحة 404 عند الوصول إلى ملفات معينة
+# لا تحظر ملفات HTML و CSS و JS بشكل عام، ولكن يمكنك أن تقوم بتعديل الإعدادات في مكان آخر إذا كنت بحاجة
+# على سبيل المثال، لا تحظر الوصول إلى ملفات JavaScript إذا كنت بحاجة إليها لتشغيل الموقع بشكل سليم
+
+# إعادة توجيه المستخدم إلى صفحة 404 عند الوصول إلى ملفات غير موجودة
 ErrorDocument 404 /404.html
